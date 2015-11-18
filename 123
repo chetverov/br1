@@ -1,0 +1,50 @@
+  
+  
+  // si impostano ad HIGH i pin VERDE, BLU, ROSSO  
+  // inizialmente il led RGB sarà spento  
+  digitalWrite(VERDE, HIGH);  
+  digitalWrite(BLU, HIGH);  
+  digitalWrite(ROSSO, HIGH);  
+}  
+  
+// definizione di variabili globali  
+int ValVerde;
+int  ValBlu;
+int  ValRosso;
+
+  
+void loop() {  
+  // spegnimento graduale del verde  
+  
+  // coordinate RGB del rosso: 0, 255, 0  
+  
+  ValVerde = 255;  
+  
+  for( int i = 0 ; i < 255 ; i += 1 ){  
+  
+    ValVerde -= 1;  
+  
+    /* ad ogni ciclio la differenza 
+     255 - ValVerde AUMENTA 
+     provocando un graduale spegnimento del verde 
+     */  
+  
+    analogWrite( VERDE, 255 - ValVerde );
+    for( int i = 0 ; i < 255 ; i += 1 ){  
+  
+    ValBlu -= 1;
+    analogWrite( BLU, 255 - ValBlu );}
+    
+    for( int i = 0 ; i < 255 ; i += 1 ){  
+  
+    ValRosso -= 1;
+    analogWrite( ROSSO, 255 - ValRosso);
+    }}
+
+    
+    
+  
+    // attesa di 20 ms per percepire il colore  
+    delay( delayTime );  
+    
+}  
